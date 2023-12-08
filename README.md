@@ -42,7 +42,7 @@ pip install -r ./requirements.txt
 
 The project is built on [t5-base](https://huggingface.co/t5-base/tree/main) or [t5-small](https://huggingface.co/t5-small/tree/main) model，
 
-You can download the weights from this link and place them in `/multi-modal-recommendation/pretrained_model/`
+You can download the weights from this link and place them in `./pretrained_model/`
 ## Reproduce DSCI565 project
 ```bash
 
