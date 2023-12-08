@@ -61,8 +61,8 @@ class TASTEModel(T5Model):
         )
         hidden = output.last_hidden_state
         # combine text embed & img embed
-        align_image = self.ln(image_embedding)
-        hidden += align_image
+        align_image = self.ln(image_embedding) # comment this line out if no image embedding needed
+        hidden += align_image # comment this line out if no image embedding needed
 
         reps = hidden[:, 0, :]
         return hidden,reps

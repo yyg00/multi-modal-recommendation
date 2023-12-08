@@ -1,5 +1,5 @@
 # Text Matching Improves Sequential Recommendation by Reducing Popularity Biases
-
+DSCI565 project: we are referring to TASTE source code
 Source code for our CIKM 2023 paper :
 [Text Matching Improves Sequential Recommendation by Reducing Popularity Biases](https://arxiv.org/pdf/2308.14029.pdf)
 
@@ -22,22 +22,7 @@ Click the links below to view our papers, checkpoints and datasets
 
 ## Requirements
 
-**1. Install the following packages using Pip or Conda under this environment**
-
-```
-python>=3.8
-transformers==4.22.2
-numpy==1.23.5
-datasets==2.11.0
-faiss-cpu
-scikit-learn>=1.1.2
-pandas
-tensorboard
-```
-
-We provide the version file `reproduce/environment.yml` of all our used packages, if you have any problems configuring the environment, please refer to this document.
-
-**2. Install openmatch. To download OpenMatch as a library and obtain openmatch-thunlp-0.0.1.**
+**1. Install openmatch. To download OpenMatch as a library and obtain openmatch-thunlp-0.0.1.**
 
 
 ```
@@ -48,22 +33,34 @@ pip install -e.
 
 We do not include all the requirements in the package. You may need to manually install `torch`
 
-**3. Prepare the pretrained T5 weights**
-
-TASTE is built on [t5-base](https://huggingface.co/t5-base/tree/main) model，
-
-You can download the weights from this link and place them in `./pretrained_model/`
-## Reproduce DSCI565 project
+**2. Prepare the project and pretrained T5 weights**
 ```bash
 git clone https://github.com/yyg00/multi-modal-recommendation.git
 cd multi-modal-recommendation
+pip install -r ./requirements.txt
+```
+
+The project is built on [t5-base](https://huggingface.co/t5-base/tree/main) or [t5-small] (https://huggingface.co/t5-small/tree/main) model，
+
+You can download the weights from this link and place them in `/multi-modal-recommendation/pretrained_model/`
+## Reproduce DSCI565 project
+```bash
+
+bash reproduce/dataprocess/gen_all_items_small.sh
+bash reproduce/dataprocess/build_train_small.sh
+bash reproduce/train/yelp/train_yelp_small.sh
+bash reproduce/valid/yelp/eval_yelp_small.sh
+bash reproduce/test/yelp/test_yelp_small.sh
+```
+### For T5-base version with image embedding
+```bash
 bash reproduce/dataprocess/gen_all_items.sh
 bash reproduce/dataprocess/build_train.sh
 bash reproduce/train/yelp/train_yelp.sh
 bash reproduce/valid/yelp/eval_yelp.sh
 bash reproduce/test/yelp/test_yelp.sh
 ```
-
+### To remove image embeddings, simply comment lines 64-65 in ./src/model.py and run above codes again
 ## Acknowledgement
 
 + [OpenMatch](https://github.com/OpenMatch/OpenMatch) This repository is built upon OpenMatch! An all-in-one toolkit for information retrieval!
