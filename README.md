@@ -52,70 +52,17 @@ We do not include all the requirements in the package. You may need to manually 
 
 TASTE is built on [t5-base](https://huggingface.co/t5-base/tree/main) model，
 
-You can download the weights from this link and place them in `TASTE/pretrained_model/`
-
-## Reproduce TASTE
-
-### Download Code & Dataset
-
-Congratulations, you've done all the prep work. Let's get started !
-
-First, use `git clone` to download this project:
-
+You can download the weights from this link and place them in `./pretrained_model/`
+## Reproduce DSCI565 project
 ```bash
-git clone https://github.com/OpenMatch/TASTE
-cd TASTE
+git clone https://github.com/yyg00/multi-modal-recommendation.git
+cd multi-modal-recommendation
+bash reproduce/dataprocess/gen_all_items.sh
+bash reproduce/dataprocess/build_train.sh
+bash reproduce/train/yelp/train_yelp.sh
+bash reproduce/valid/yelp/eval_yelp.sh
+bash reproduce/test/yelp/test_yelp.sh
 ```
-
-Next, download our processed dataset from the [Google Drive](https://drive.google.com/drive/folders/1U_tkCJq80kdefV9z_FdWDCMWvtUrm0or), please make sure that the files under the data folder contain the following before running::
-
-```
-data/
-├── beauty/
-│   ├── train.txt
-│   ├── valid.txt
-│   ├── test.txt
-│   ├── item.txt
-│   ├── train_name.jsonl
-│   ├── valid_name.jsonl
-│   └── item_name.jsonl
-├── toys/
-├── sports/  
-└── yelp/
-```
-
-We have also provided a script for processing the data in the `TASTE/data`, so you can download the original dataset and use the script to process it yourself.
-
-### Train then test
-
-Next, start training the TASTE model
-In the reproduce folder, we provide scripts for reproducing all TASTE models. Using the beauty dataset as an example, I will show you how to reproduce the results in the TASTE paper.
-
-0⃣️ First.
-
-```bash
-cd TASTE
-```
-
-1⃣️ Training TASTE on the beauty dataset
-
-```bash
-bash reproduce/train/beauty/train_beauty.sh
-```
-
-2⃣️ Validate for the best checkpoint
-
-```bash
-bash reproduce/valid/beauty/eval_beauty.sh
-```
-
-3⃣️ Test for final results
-
-```bash
-bash reproduce/test/beauty/test_beauty.sh
-```
-
-
 
 ## Acknowledgement
 

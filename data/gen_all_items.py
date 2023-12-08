@@ -26,7 +26,7 @@ def get_args():
     parser.add_argument('--output_dir', type=str, default='/root/autodl-tmp/TASTE/data/yelp',
                         help='Output data path.')
     parser.add_argument('--tokenizer', type=str,
-                        default='/root/autodl-tmp/TASTE//pretrained_model/t5-base')
+                        default='/root/autodl-tmp/TASTE/pretrained_model/t5-base')
     parser.add_argument('--item_size', type=int, default=32,
                         help='maximum length of tokens of item text')
     args = parser.parse_args()

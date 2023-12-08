@@ -7,4 +7,4 @@ CUDA_VISIBLE_DEVICES=0 python inference.py  \
     --num_passage 2  \
     --split_num 243  \
     --eval_batch_size 512  \
-    --best_model_path ../TASTE/checkpoint/yelp/address/best_dev
+    --best_model_path ./checkpoint/yelp/address/best_dev

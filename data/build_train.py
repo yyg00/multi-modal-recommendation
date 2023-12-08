@@ -30,13 +30,12 @@ def get_args():
                         help='Output data path.')
     parser.add_argument('--split_num', type=int, default=243,
                         help='token num of seq text without prompt, total num equals to 256')
-    parser.add_argument('--sample_num', type=int, default=100, 
+    parser.add_argument('--sample_num', type=int, default=10, 
                         help='the sample num of random negatives ') # 100 to 10 first
     parser.add_argument('--seed', type=int, default=2022,
                         help='random seed')
     parser.add_argument('--tokenizer', type=str,
                         default='/root/autodl-tmp/TASTE/pretrained_model/t5-base')
-    # TBD: update reproduce/dataprocess/build.train.sh & gen_all_items.sh for better reproduction
     parser.add_argument('--image_file', type=str, default='/root/autodl-tmp/TASTE/data/yelp/item_photos.npy') # load image embeddings
     args = parser.parse_args()
     return args
@@ -58,7 +57,7 @@ def load_data(filename,item_desc,item_img):
     data = []
     data_ids = []
     lines = open(filename, 'r').readlines()
-    for line in lines[1:]: # try 1000 training samples first
+    for line in lines[1:]: # try 1000 training samples first, to get full trainset, set lines[1:1001] to lines[1:]
         example = list()
         example2 = list()
         line = line.strip().split('\t')

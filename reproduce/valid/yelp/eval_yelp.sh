@@ -8,4 +8,4 @@ CUDA_VISIBLE_DEVICES=0 python evaluate.py  \
     --split_num 243  \
     --eval_batch_size 512  \
     --stopping_step 5  \
-    --all_models_path ../TASTE/checkpoint/yelp/address
+    --all_models_path ./checkpoint/yelp/address
