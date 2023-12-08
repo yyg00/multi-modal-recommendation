@@ -1,5 +1,5 @@
 # Text Matching Improves Sequential Recommendation by Reducing Popularity Biases
-DSCI565 project: we are referring to TASTE source code
+### DSCI565 project: we are referring to TASTE source code
 Source code for our CIKM 2023 paper :
 [Text Matching Improves Sequential Recommendation by Reducing Popularity Biases](https://arxiv.org/pdf/2308.14029.pdf)
 
@@ -40,7 +40,7 @@ cd multi-modal-recommendation
 pip install -r ./requirements.txt
 ```
 
-The project is built on [t5-base](https://huggingface.co/t5-base/tree/main) or [t5-small] (https://huggingface.co/t5-small/tree/main) model，
+The project is built on [t5-base](https://huggingface.co/t5-base/tree/main) or [t5-small](https://huggingface.co/t5-small/tree/main) model，
 
 You can download the weights from this link and place them in `/multi-modal-recommendation/pretrained_model/`
 ## Reproduce DSCI565 project
